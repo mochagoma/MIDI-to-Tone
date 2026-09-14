@@ -2,7 +2,7 @@
 
 A free and open-source tool for converting MIDI files into `.tone` files for compatible click-wheel iPods. MIDI to Tone runs entirely in your browser. Nothing gets uploaded — your MIDI file stays on your device while it's being converted.
 
-**[→ Use MIDI to Tone online](https://mochagoma.github.io/MIDI to Tone/)**
+**[→ Use MIDI to Tone online](https://mochagoma.github.io/MIDI-to-Tone/)**
 
 ## Features
 
@@ -33,7 +33,7 @@ You don't need an iPod to convert or preview a MIDI file.
 
 The easiest way to use MIDI to Tone is through the hosted version:
 
-**[Open MIDI to Tone](https://mochagoma.github.io/MIDI to Tone/)**
+**[Open MIDI to Tone](https://mochagoma.github.io/MIDI-to-Tone/)**
 
 1. Open the website.
 2. Choose a MIDI file, or drag one onto the page.
@@ -201,7 +201,7 @@ iPod_Control/Tones
 
 ## Changelog
 
-See the **[repository history](https://github.com/mochagoma/MIDI to Tone/commits/main/)** for changes and updates.
+See the **[repository history](https://github.com/mochagoma/MIDI-to-Tone/commits/main/)** for changes and updates.
 
 ## License
 
