@@ -117,6 +117,7 @@
     html {
       min-height: 100%;
       background: var(--background);
+      transition: background-color 260ms ease;
     }
 
     body {
@@ -316,8 +317,8 @@
       text-align: center;
       cursor: pointer;
       transition:
-        border-color 160ms ease,
-        background 160ms ease,
+        border-color 260ms ease,
+        background-color 260ms ease,
         transform 160ms ease;
     }
 
@@ -367,6 +368,7 @@
       margin: 5px 0 0;
       color: var(--text-secondary);
       font-size: 14px;
+      transition: color 260ms ease;
     }
 
     .file-input {
@@ -380,6 +382,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--surface-secondary);
+      transition: background-color 260ms ease, border-color 260ms ease;
     }
 
     .file-info.visible {
@@ -402,6 +405,7 @@
       flex-shrink: 0;
       color: var(--text-secondary);
       font-size: 13px;
+      transition: color 260ms ease;
     }
 
     .status {
@@ -409,6 +413,7 @@
       margin: 13px 2px 0;
       color: var(--text-secondary);
       font-size: 13px;
+      transition: color 260ms ease;
     }
 
     .status.error {
@@ -445,6 +450,7 @@
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
       text-align: center;
       animation: error-dialog-in 420ms cubic-bezier(0.22, 1.25, 0.36, 1) both;
+      transition: background-color 260ms ease, border-color 260ms ease;
     }
 
     .info-dialog-card {
@@ -454,6 +460,7 @@
     .info-dialog-card .error-dialog-message {
       color: var(--text-secondary);
       text-align: left;
+      transition: color 260ms ease;
     }
 
     .info-dialog-icon {
@@ -511,6 +518,7 @@
       font-size: 26px;
       font-weight: 700;
       animation: error-icon-pulse 900ms ease-out 120ms both;
+      transition: background-color 260ms ease;
     }
 
     .info-dialog-card .error-dialog-icon {
@@ -527,6 +535,7 @@
       color: var(--text-secondary);
       line-height: 1.5;
       overflow-wrap: anywhere;
+      transition: color 260ms ease;
     }
 
     .error-dialog-close {
@@ -538,6 +547,7 @@
       color: #ffffff;
       cursor: pointer;
       font-weight: 650;
+      transition: background-color 260ms ease;
     }
 
     .error-dialog-close:hover {
@@ -653,6 +663,7 @@
       color: var(--text-secondary);
       font-size: 12px;
       font-weight: 650;
+      transition: color 260ms ease;
     }
 
     select,
@@ -666,7 +677,7 @@
       outline: none;
       background: var(--surface-solid);
       color: var(--text);
-      transition: border-color 150ms ease, box-shadow 150ms ease, background-color 260ms ease, color 260ms ease;
+      transition: border-color 260ms ease, box-shadow 150ms ease, background-color 260ms ease, color 260ms ease;
     }
 
     select:focus,
@@ -701,6 +712,7 @@
       padding: 15px;
       color: var(--text-tertiary);
       font-size: 14px;
+      transition: color 260ms ease;
     }
 
     .track {
@@ -746,6 +758,7 @@
       margin-top: 1px;
       color: var(--text-tertiary);
       font-size: 11px;
+      transition: color 260ms ease;
     }
 
     .track-actions {
@@ -753,6 +766,7 @@
       gap: 6px;
       padding: 7px;
       border-top: 1px solid var(--border);
+      transition: border-color 260ms ease;
     }
 
     .mini-button {
@@ -764,6 +778,7 @@
       font-size: 12px;
       font-weight: 650;
       cursor: pointer;
+      transition: color 260ms ease, background-color 120ms ease;
     }
 
     .mini-button:hover {
@@ -789,9 +804,9 @@
       cursor: pointer;
       transition:
         transform 100ms ease,
-        background 120ms ease,
-        border-color 120ms ease,
         opacity 120ms ease,
+        background-color 260ms ease,
+        border-color 260ms ease,
         color 260ms ease;
     }
 
@@ -839,6 +854,7 @@
     .output-count {
       color: var(--text-tertiary);
       font-size: 12px;
+      transition: color 260ms ease;
     }
 
     .editor-wrap {
@@ -852,7 +868,7 @@
       background: var(--editor-background);
       transition:
         background-color 260ms ease,
-        border-color 150ms ease,
+        border-color 260ms ease,
         box-shadow 150ms ease;
     }
 
@@ -890,6 +906,7 @@
       pointer-events: none;
       overflow: hidden;
       scrollbar-width: none;
+      transition: color 260ms ease;
     }
 
     .editor-highlight::-webkit-scrollbar {
@@ -920,6 +937,7 @@
 
     textarea#output::placeholder {
       color: var(--editor-placeholder);
+      transition: color 260ms ease;
     }
 
     .footer {
@@ -927,6 +945,7 @@
       text-align: center;
       color: var(--text-tertiary);
       font-size: 12px;
+      transition: color 260ms ease;
     }
 
     @media (max-width: 760px) {
