@@ -1,8 +1,8 @@
-# MIDI-to-Tone
+# MIDI to Tone
 
-A free and open-source tool for converting MIDI files into `.tone` files for compatible click-wheel iPods. MIDI-to-Tone runs entirely in your browser. Nothing gets uploaded — your MIDI file stays on your device while it's being converted.
+A free and open-source tool for converting MIDI files into `.tone` files for compatible click-wheel iPods. MIDI to Tone runs entirely in your browser. Nothing gets uploaded — your MIDI file stays on your device while it's being converted.
 
-**[→ Use MIDI-to-Tone online](https://mochagoma.github.io/MIDI-to-Tone/)**
+**[→ Use MIDI to Tone online](https://mochagoma.github.io/MIDI to Tone/)**
 
 ## Features
 
@@ -31,9 +31,9 @@ You don't need an iPod to convert or preview a MIDI file.
 
 ## Usage
 
-The easiest way to use MIDI-to-Tone is through the hosted version:
+The easiest way to use MIDI to Tone is through the hosted version:
 
-**[Open MIDI-to-Tone](https://mochagoma.github.io/MIDI-to-Tone/)**
+**[Open MIDI to Tone](https://mochagoma.github.io/MIDI to Tone/)**
 
 1. Open the website.
 2. Choose a MIDI file, or drag one onto the page.
@@ -51,7 +51,7 @@ Everything is converted locally in your browser.
 
 A MIDI file can contain multiple tracks, each of which often represents a separate instrument.
 
-MIDI-to-Tone shows how many notes are in each track and lets you select which tracks should be converted.
+MIDI to Tone shows how many notes are in each track and lets you select which tracks should be converted.
 
 For example:
 
@@ -69,7 +69,7 @@ You can use **Select all** or **Clear** to quickly select tracks.
 
 MIDI can have several notes playing at the same time, while `.tone` sequences are made up of individual frequency and duration events.
 
-MIDI-to-Tone gives you four ways to handle this:
+MIDI to Tone gives you four ways to handle this:
 
 | Mode | Description |
 | --- | --- |
@@ -129,11 +129,11 @@ Once the `.tone` file is in the `Tones` folder, it can be used as an alarm tone 
 
 ## Running Locally
 
-You can also run MIDI-to-Tone yourself instead of using the hosted version.
+You can also run MIDI to Tone yourself instead of using the hosted version.
 
 ```bash
-git clone https://github.com/mochagoma/MIDI-to-Tone.git
-cd MIDI-to-Tone
+git clone https://github.com/mochagoma/MIDI to Tone.git
+cd MIDI to Tone
 ```
 
 Then open `index.html` in your browser.
@@ -142,7 +142,7 @@ There is no build system, package manager, or backend. The project is just a sel
 
 ## Browser Compatibility
 
-MIDI-to-Tone is intended for modern browsers with JavaScript and Web Audio support.
+MIDI to Tone is intended for modern browsers with JavaScript and Web Audio support.
 
 It works with:
 
@@ -153,7 +153,7 @@ It works with:
 
 ## Privacy
 
-MIDI-to-Tone doesn't upload your MIDI files.
+MIDI to Tone doesn't upload your MIDI files.
 
 The MIDI parser and converter run locally in your browser, so your files stay on your device.
 
@@ -167,8 +167,8 @@ The MIDI parser and converter run locally in your browser, so your files stay on
 - Some MIDI files may sound different after conversion because `.tone` is much simpler than MIDI.
 - Drum and percussion tracks may not work well as melodic tones.
 - The generated files are intended for compatible legacy click-wheel iPods.
-- MIDI-to-Tone does not modify iPod firmware.
-- You don't need an iPod to use MIDI-to-Tone.
+- MIDI to Tone does not modify iPod firmware.
+- You don't need an iPod to use MIDI to Tone.
 
 ## Troubleshooting
 
@@ -201,13 +201,13 @@ iPod_Control/Tones
 
 ## Changelog
 
-See the **[repository history](https://github.com/mochagoma/MIDI-to-Tone/commits/main/)** for changes and updates.
+See the **[repository history](https://github.com/mochagoma/MIDI to Tone/commits/main/)** for changes and updates.
 
 ## License
 
-MIDI-to-Tone is licensed under the **MIT License**.
+MIDI to Tone is licensed under the **MIT License**.
 
 See [`LICENSE`](LICENSE) for the full license text.
 
 > [!IMPORTANT]
-> MIDI-to-Tone is an independent third-party project. It is not affiliated with, endorsed by, sponsored by, or otherwise approved by Apple Inc. iPod is a trademark of Apple Inc.
+> MIDI to Tone is an independent third-party project. It is not affiliated with, endorsed by, sponsored by, or otherwise approved by Apple Inc. iPod is a trademark of Apple Inc.
