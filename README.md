@@ -4,7 +4,15 @@ A free and open-source tool for converting MIDI files into `.tone` files for com
 
 <img alt="Static Badge" src="https://img.shields.io/badge/github-MIDI--to--Tone-green?style=flat-square&logo=github"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Mochagoma/MIDI-to-Tone?style=flat-square"> <img alt="Page Views" src="https://vbr.nathanchung.dev/badge?page_id=mochagoma.midi-to-tone&text=GitHub%20Page%20Visits&style=flat-square&color=9d00ff&lcolor=555555"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Mochagoma/MIDI-to-Tone?style=flat-square&color=%23FFFF00"> <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Mochagoma/MIDI-to-Tone?style=flat-square">
 
-**[→ Use MIDI to Tone online](https://mochagoma.github.io/MIDI-to-Tone/)**
+---
+
+<p align="center">
+  <a href="https://mochagoma.github.io/MIDI-to-Tone/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/Try%20MIDI%20to%20Tone%20online-007aff?style=for-the-badge&labelColor=007aff" alt="Try MIDI to Tone online">
+  </a>
+</p>
+
+---
 
 ## Features
 
