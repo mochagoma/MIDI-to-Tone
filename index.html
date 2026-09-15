@@ -355,7 +355,11 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       font-size: 22px;
       font-weight: 700;
-      transition: background-color 260ms ease, color 260ms ease;
+      transition: background-color 260ms ease, color 260ms ease, transform 200ms ease;
+    }
+
+    .drop-zone:hover .drop-icon {
+      transform: scale(1.06);
     }
 
     .drop-title {
@@ -1323,6 +1327,15 @@
         Download .tone
       </button>
 
+      <button
+        class="button"
+        id="copyButton"
+        type="button"
+        disabled
+      >
+        Copy
+      </button>
+
     </div>
 
   </section>
@@ -1458,7 +1471,17 @@
  Paste raw icon base64 here, or use a complete data URI.
  Change the MIME type when using a non-PNG icon.
 */
-const FAVICON_BASE64 = `iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oJDhYBNLbAnTAAAAWESURBVFjDrZdNbxzHEYaf6q752OWH6IUYxiC8lp2L7Rxk+CLJUYCcYuSWKDkmfyH/J2eecolzTZAjbQkBfHBOsWBbDsEIkhNZJEXucHe6u3LYneHscsn1IQ0Uenanp+qtqre6qwX4DXD88OHD+8Ph8Oe9Xu+2c64HkFKaEzNrZdkQkVacc3My01dVVfX5wcHBX+/du7cP3BDgd/v7+78cDocP8jxHVRGR1mgIgRgjMcYWxHWjMe69nxPnHGZGCIHJZMLBwcGf7t+//2fd29v72WAweBBCwHvfKokxEkKgruv2uQugC0RELgFQVbz3ZFnWPptZq2swGDzY29s70t3d3Q+7YRaRduFkMqGua9af/IP8xVNIhiUDEyyBADQ4bCrCNAX1YIeTH78/B7gb2ZQSu7u7H2q/33+78SzG2C5uvM+fPWH70R8gOiwKNJK4mM2mxlOazdN39drvqW79qOVAE1kzI6VEr9d7W4G8S67mZZN3d/YKk3Wev/cLvtt+E2YeOnEXiTebBiAlADZfPGf3b3+E0ehCz4yMXTsikmvXaDPPiQmJNcb5BqP+5hyzG8YvficpYaKkhf+b6HYrShdZvBgNMyHZGoa7xPAmtIvpMyCJLtF1uYJ00XjD6IuPHMnW4QoADbG63oFgZBf8vKZ0HSuGmSfGDZLp0k1nWSmCkCzHkEvGF3/rcqMXIQtJmcRNovlLue6WVrNRTXljJCvo2loWBTNDr0NoZkyioxqtUUdp89xNVxfABQgjWg8zuXbrnovAVYsCjoqCOkq7GzZl1Q17NwpZMgIlyeSSQ4u29Orcz1KAo3IFvKjJeIXDcICTJu+GMPMyRcDovTwlUBJNVp4duoqENY6gJf5JoPhyjIaIpoCPEZ/CDFBCWgkIgWglCVlZBVeSsBkRR+0LPIonolaT4XC9RNzu4TD631ZkxzUOB+Jw+Cksc6xKsV5fgkYtnpGWOCJqAfWe8G5ivN2t4A1uvBiz89lLstNImm3XhluZgpX7QBTPSAtGWnKaFZx94Di/KZe27KNBzjc/3SZmU89T8iRj5fheAM605EwL4psOW5s1JtHQ51A+jUg9BTEuHf+9vTWjpQOT/xeAgjPt4V+bXJDziw3i4z7ui4LNz2R6BAPHr5dEr5g4jNUAVlZBdI6RFkAi709ICerznFenGwQdk8RRnjtcNcY2IOSOictQhO9hfzmAZoMREaIIoyzDJBFCjnPn+DzxqigIE0cQT8SjeY0wbUYqLcljTRKP7+hamgJZWLA4m/NUqow04/h8EwDvI1u3jjgtC87KgvTeBPIp49yxY6Q9RtojiL9W98oUiAjmPOeqRIHHJz/kztpLhJrXto7ZunHUUSg4PKN/9Ql5oog1ay6jFLlWv17V1zdnP84x1owgcBY9f//PO9z5wT8RYlvj067I8fyrbazylFlN4QLFQue0eIS3EVhmuG041DNRpRaoxXhcb/Hs3x9we/NbbpYniBknZz2ePtvCnUOZBUoXKV1goGFe1xIQ2s1L6zW0vX2eecZemWDUQMA4S55nR2+QpUQRI2VMlJIo80QRE2Wczm9lFap+ro/sHuNNCiYiknevU02jaWbcGky4czri6SijjkZMkJJBMiQlfEqoGZoMnyAzR2bCzTXh9TemTjQXk0ZvJwoTrarq6/X19XcW73FNZPrAR2991/YC3Y52GX8aHapKluVkWUaWZXMNbLOmqqqv9fDw8NOdnZ0WQBdp81tV51quZadbA7irZ5n3XQCHh4efCvDb/f39Xw2HwwdFUaCqcxeIuV7virvhYo13o9kYb1q3EALj8bi5nH4swK+Bk0ePHv1kOBx+1O/3b3vve8suEd3QXwdgsaKadzHGajQafX5wcPCXu3fvfgJs/g+phBKZjrCjOQAAAABJRU5ErkJggg==`;
+const FAVICON_BASE64 = `iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IB2cksfwAAAARnQU1B
+AACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAA
+AAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oJDBQoJ9+1X+AAAAWESURBVFjDrZdNbxzH
+EYaf6q752OWH6IUYxiC8lp2L7Rxk+CLJUYCcYuSWKDkmfyH/J2eecolzTZAjbQkBfHBOsWBb
+DsEIkhNZJEXucHe6u3LYneHscsn1IQ0Uenanp+qtqre6qwX4DXD88OHD+8Ph8Oe9Xu+2c64H
+kFKaEzNrZdkQkVacc3My01dVVfX5wcHBX+/du7cP3BDgd/v7+78cDocP8jxHVRGR1mgIgRgj
+McYWxHWjMe69nxPnHGZGCIHJZMLBwcGf7t+//2fd29v72WAweBBCwHvfKokxEkKgruv2uQug
+C0RELgFQVbz3ZFnWPptZq2swGDzY29s70t3d3Q+7YRaRduFkMqGua9af/IP8xVNIhiUDEyyB
+ADQ4bCrCNAX1YIeTH78/B7gb2ZQSu7u7H2q/33+78SzG2C5uvM+fPWH70R8gOiwKNJK4mM2m
+xlOazdN39drvqW79qOVAE1kzI6VEr9d7W4G8S67mZZN3d/YKk3Wev/cLvtt+E2YeOnEXiTeb
+BiAlADZfPGf3b3+E0ehCz4yMXTsikmvXaDPPiQmJNcb5BqP+5hyzG8YvETcggUJ+/AAAAAElFTkSuQmCC`;
 const FAVICON_MIME_TYPE = "image/png";
 
 
@@ -1713,6 +1736,9 @@ const playButton =
 const downloadButton =
   document.getElementById("downloadButton");
 
+const copyButton =
+  document.getElementById("copyButton");
+
 const output =
   document.getElementById("output");
 
@@ -1787,8 +1813,22 @@ let lastFocusedBeforeDialog = null;
 
 function openDialog(dialogElement, focusTarget) {
 
-  lastFocusedBeforeDialog =
-    document.activeElement;
+  /*
+   Only capture the pre-dialog focus target the first time —
+   if this dialog is somehow already open (e.g. reopened while
+   still mid-close), re-capturing here would overwrite it with
+   the dialog's own close button, which is what's focused right
+   now, breaking focus restoration on the eventual close.
+  */
+
+  if (
+    dialogElement.hidden
+  ) {
+
+    lastFocusedBeforeDialog =
+      document.activeElement;
+
+  }
 
   dialogElement.hidden =
     false;
@@ -1878,11 +1918,16 @@ errorDialog.addEventListener(
 );
 
 
+let infoDialogCloseTimer =
+  null;
+
+
 function dismissInfoDialog() {
 
-  closeDialog(
-    infoDialog
-  );
+  infoDialogCloseTimer =
+    closeDialog(
+      infoDialog
+    );
 
 }
 
@@ -1893,6 +1938,17 @@ infoDialogMessage.textContent =
 infoButton.addEventListener(
   "click",
   () => {
+
+    /*
+     Without this, closing the info dialog then reopening it
+     within the 220ms close animation left the earlier close's
+     timer still pending — it would fire a moment later and
+     silently hide the dialog the user had just reopened.
+    */
+
+    clearTimeout(
+      infoDialogCloseTimer
+    );
 
     openDialog(
       infoDialog,
@@ -2054,6 +2110,22 @@ function readVLQ(data, position) {
 /* ============================================================
    MIDI PARSER
 ============================================================ */
+
+/*
+ Data-byte counts for System Common / Real-Time status bytes
+ (0xF1–0xFE, excluding 0xF7 which is handled separately as a
+ SysEx continuation). These have no place in a Standard MIDI
+ File, but some real-world exports embed a stray one anyway
+ (e.g. an MTC quarter-frame byte). Any not listed here (the
+ reserved/undefined ones) carry no data bytes.
+*/
+
+const SYSTEM_MESSAGE_DATA_BYTES = {
+  0xf1: 1, // MTC Quarter Frame
+  0xf2: 2, // Song Position Pointer
+  0xf3: 1  // Song Select
+};
+
 
 function parseMIDI(buffer) {
 
@@ -2367,6 +2439,32 @@ function parseMIDI(buffer) {
         /*
          SysEx also resets running status.
         */
+
+        runningStatus =
+          0;
+
+      }
+
+
+      /*
+       Other System Common / Real-Time bytes
+       (0xF1–0xF6, 0xF8–0xFE). Without this branch, one
+       of these fell through to the channel-event branch
+       below, which misread it as a note on/off status and
+       consumed the wrong number of following bytes —
+       silently corrupting every event after it in the track.
+      */
+
+      else if (
+        status >= 0xf1 &&
+        status <= 0xfe &&
+        status !== 0xf7
+      ) {
+
+        position.i +=
+          SYSTEM_MESSAGE_DATA_BYTES[status] ??
+          0;
+
 
         runningStatus =
           0;
@@ -3476,6 +3574,16 @@ async function loadMIDIFile(selectedFile) {
     downloadButton.disabled =
       true;
 
+    copyButton.disabled =
+      true;
+
+    clearTimeout(
+      copyButtonResetTimer
+    );
+
+    copyButton.textContent =
+      "Copy";
+
 
     setStatus(
       "MIDI loaded. Select tracks and convert."
@@ -3522,6 +3630,16 @@ async function loadMIDIFile(selectedFile) {
 
     downloadButton.disabled =
       true;
+
+    copyButton.disabled =
+      true;
+
+    clearTimeout(
+      copyButtonResetTimer
+    );
+
+    copyButton.textContent =
+      "Copy";
 
 
     setStatus(
@@ -3735,6 +3853,25 @@ function runConversion() {
 
   }
 
+
+  /*
+   Stop any preview immediately, before validating the
+   selection — otherwise unchecking every track (or any
+   other change that fails validation below) left audio
+   playing under a "Select at least one track" error.
+  */
+
+  if (
+    isPlaying
+  ) {
+
+    stopTone(
+      false
+    );
+
+  }
+
+
   const selected =
     getSelectedTracks();
 
@@ -3745,17 +3882,6 @@ function runConversion() {
 
     throw new Error(
       "Select at least one track."
-    );
-
-  }
-
-
-  if (
-    isPlaying
-  ) {
-
-    stopTone(
-      false
     );
 
   }
@@ -3778,6 +3904,23 @@ function runConversion() {
 
   downloadButton.disabled =
     false;
+
+  copyButton.disabled =
+    false;
+
+  /*
+   If "Copied!" is still showing from a previous click,
+   this content is no longer what was actually copied —
+   revert the label immediately rather than letting a
+   stale success message linger on newly-generated output.
+  */
+
+  clearTimeout(
+    copyButtonResetTimer
+  );
+
+  copyButton.textContent =
+    "Copy";
 
 
   const events =
@@ -3843,6 +3986,39 @@ convertButton.addEventListener(
    selection (above) follows the same rule.
 ============================================================ */
 
+function clearOutputState() {
+
+  currentTone =
+    "";
+
+  output.value =
+    "";
+
+  outputCount.textContent =
+    "";
+
+  renderHighlight();
+
+
+  playButton.disabled =
+    true;
+
+  downloadButton.disabled =
+    true;
+
+  copyButton.disabled =
+    true;
+
+  clearTimeout(
+    copyButtonResetTimer
+  );
+
+  copyButton.textContent =
+    "Copy";
+
+}
+
+
 function reconvertIfAlreadyConverted() {
 
   if (
@@ -3866,6 +4042,18 @@ function reconvertIfAlreadyConverted() {
   }
 
   catch (error) {
+
+    /*
+     A failed live reconversion (e.g. every track got
+     unchecked) used to leave the previous, now-stale
+     output sitting there fully playable and downloadable —
+     misleading, since it no longer matches the current
+     settings. Clear it so the error message and the UI
+     state agree.
+    */
+
+    clearOutputState();
+
 
     setStatus(
       error.message ||
@@ -4713,6 +4901,110 @@ downloadButton.addEventListener(
     );
 
   }
+);
+
+
+/* ============================================================
+   COPY
+============================================================ */
+
+let copyButtonResetTimer =
+  null;
+
+
+async function copyToneToClipboard() {
+
+  if (
+    !currentTone.trim()
+  ) {
+    return;
+  }
+
+
+  try {
+
+    if (
+      navigator.clipboard &&
+      window.isSecureContext
+    ) {
+
+      await navigator.clipboard.writeText(
+        currentTone
+      );
+
+    } else {
+
+      /*
+       Fallback for browsers/contexts without the
+       async Clipboard API (e.g. plain http://).
+      */
+
+      const scratch =
+        document.createElement("textarea");
+
+      scratch.value =
+        currentTone;
+
+      scratch.style.position =
+        "fixed";
+
+      scratch.style.opacity =
+        "0";
+
+      document.body.appendChild(
+        scratch
+      );
+
+      scratch.focus();
+
+      scratch.select();
+
+      document.execCommand(
+        "copy"
+      );
+
+      scratch.remove();
+
+    }
+
+
+    clearTimeout(
+      copyButtonResetTimer
+    );
+
+    copyButton.textContent =
+      "Copied!";
+
+    setStatus(
+      "Copied to clipboard."
+    );
+
+    copyButtonResetTimer =
+      setTimeout(
+        () => {
+          copyButton.textContent =
+            "Copy";
+        },
+        1500
+      );
+
+  }
+
+  catch (error) {
+
+    setStatus(
+      "Couldn't copy — select the text and copy it manually.",
+      true
+    );
+
+  }
+
+}
+
+
+copyButton.addEventListener(
+  "click",
+  copyToneToClipboard
 );
 
 
